@@ -1,6 +1,8 @@
 package com.jialin.websitedemo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -26,8 +28,10 @@ public class IndexController {
         return String.format("hello %s", s);
     }
 
-    @RequestMapping(path = {"/vm"})
-    public String template(){
+    @RequestMapping(path = {"/vmasd"})
+    public String template(Model model){
+        model.addAttribute("uid","123456789");
+        model.addAttribute("name","Jerry");
         return "home";
     }
 }

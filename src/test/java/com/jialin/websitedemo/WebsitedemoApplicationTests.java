@@ -13,4 +13,7 @@ public class WebsitedemoApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testController(){}
+	
 }

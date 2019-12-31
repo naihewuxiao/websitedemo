@@ -1,5 +1,6 @@
 package com.jialin.websitedemo.controller;
 
+import com.jialin.websitedemo.mapper.UserMapper;
 import com.jialin.websitedemo.model.User;
 import com.jialin.websitedemo.service.FirstService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,25 @@ public class IndexController {
     @Autowired
     FirstService firstService;
 
+    @Autowired
+    UserMapper userMapper;
+
+
     @RequestMapping(path = {"/","/index"})  //接受浏览器对"localhost:8080/"或者"localhost:8080/index" 的请求
     @ResponseBody   //对接受到的请求进行反应，直接返回body 没有头部等其他标签
     public String index(){
         return "hello susu";
+    }
+
+    @RequestMapping(path = {"/test"})
+    @ResponseBody
+    public  String test(){
+        User user = new User();
+        user.setUserName("aaa");
+        user.setPassword("bbb");
+        user.setPhone("ccc");
+        userMapper.insert(user);
+        return "s";
     }
 
 
@@ -38,7 +54,6 @@ public class IndexController {
     public String template(Model model){
         model.addAttribute("uid","123456789");
         model.addAttribute("name","Jerry");
-        model.addAttribute("user",new User("start"));
         return "home";
     }
 

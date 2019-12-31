@@ -1,17 +1,62 @@
 package com.jialin.websitedemo.model;
 
+
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
 public class User {
-    private String name;
 
-    public User(String name) {
-        this.name = name;
+    private Integer userId;
+
+    private String userName;
+
+    private String password;
+
+    private String phone;
+
+    public User(Integer userId, String userName, String password, String phone) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public User() {
+        super();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 }
